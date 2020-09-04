@@ -55,6 +55,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <img src="de.png">
     <p>German</p>
   </button>
+  <button onclick="selectLang('chinese')" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <img src="ch.png">
+    <p>Chinese</p>
+  </button>
 
 </nav>
 
@@ -70,6 +74,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     </button>
     <button onclick="selectLang('german')" class="w3-bar-item w3-button">
       German
+    </button>
+    <button onclick="selectLang('chinese')" class="w3-bar-item w3-button">
+      Chinese
     </button>  </div>
 </div>
 
@@ -85,7 +92,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <!-- Question Section -->
   <div  class="w3-half w3-card-4 w3-container w3-padding-16">
     <div  class="w3-white w3-card-4 w3-container">
-      <p>Translate: <b><span id="question"></span></b></p>
+      <p>Translate: <b><span style="font-size: 120%;" id="question"></span></b></p>
     </div>
   </div>
 
@@ -156,6 +163,16 @@ init();
      init();
 
   }
+  else if (language == 'chinese')
+  {
+    document.getElementById('heading').innerHTML = 'Chinese ';
+     msgCorrect  = "没错   "
+     msgIncorrect = "那是不对的";
+     publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/13jBWFwYVBaESgpSYaJPBwRkT9wN2EkM__oa1QAiz0oE/edit?usp=sharing';
+     init();
+
+  }
+
 }
 
 
