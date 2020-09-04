@@ -17,7 +17,7 @@
   <meta name=”robots” content=”index,about>
   <meta name="revisit-after" content="7 days">
   <meta name="distribution" content="web">
-  <meta property="og:description" name="description" content="Improve your language skills with LingoRoots." /> <!-- Website description again --> 
+  <meta property="og:description" name="description" content="Improve your language skills with LingoRoots." /> <!-- Website description again -->
 
   <!--Meta Tags for HTML pages on Mobile-->
      <meta name="format-detection" content="telephone=yes"/>
@@ -88,6 +88,14 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <img src="ch.png">
     <p>Chinese</p>
   </button>
+  <button onclick="selectLang('russian')" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <img src="ru.png">
+    <p>Russian</p>
+  </button>
+  <button onclick="selectLang('arabic')" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <img src="sa.png">
+    <p>Arabic</p>
+  </button>
 
 </nav>
 
@@ -106,6 +114,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     </button>
     <button onclick="selectLang('chinese')" style="width:25% !important"class="w3-bar-item w3-button">
       Chinese
+    </button>
+    <button onclick="selectLang('russian')" style="width:25% !important"class="w3-bar-item w3-button">
+      Russian
+    </button>
+    <button onclick="selectLang('arabic')" style="width:25% !important"class="w3-bar-item w3-button">
+      Arabic
     </button>
   </div>
 </div>
@@ -202,6 +216,26 @@ init();
      init();
 
   }
+  else if (language == 'russian')
+  {
+    document.getElementById('heading').innerHTML = 'Russian ';
+     msgCorrect  = "Верный   "
+     msgIncorrect = "это не правильно";
+     publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/179LCdrO3RAdOpw0wPK9LhKTBw1Ldgou1k-GKyDM6CU0/edit?usp=sharing';
+     init();
+
+  }
+
+  else if (language == 'arabic')
+  {
+    document.getElementById('heading').innerHTML = 'Arabic ';
+     msgCorrect  = "هذا صحيح!"
+     msgIncorrect = "هذا غير صحيح!";
+     publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1gZ1zsS_n6vXqAIfTafhlpdeReBkBq0Aq5YgcWPQXRHQ/edit?usp=sharing';
+     init();
+
+  }
+
 
 }
 
