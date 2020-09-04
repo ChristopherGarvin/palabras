@@ -15,7 +15,17 @@
 <script src="https://kit.fontawesome.com/8770f0a2e2.js" crossorigin="anonymous"></script>
 
 <!-- https://www.countryflags.com/en/germany-flag-icon.html -->
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177287766-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-177287766-1');
+</script>
+</head>
 <style>
 @media only screen and (min-width: 1400px) {
   body {
@@ -63,21 +73,22 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+<div class=" w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-center w3-small">
-    <a href="about.html" class="w3-bar-item w3-button" style="width:25% !important">About</a>
-    <button onclick="selectLang('spanish')" class="w3-bar-item w3-button">
+    <a href="about.html" class="w3-bar-item w3-button" style="width:25% !important"><b>About</b></a>
+    <button onclick="selectLang('spanish')" style="width:25% !important" class="w3-bar-item w3-button">
       Spanish
     </button>
-    <button onclick="selectLang('french')" class="w3-bar-item w3-button">
+    <button onclick="selectLang('french')" style="width:25% !important"class="w3-bar-item w3-button">
       French
     </button>
-    <button onclick="selectLang('german')" class="w3-bar-item w3-button">
+    <button onclick="selectLang('german')" style="width:25% !important"class="w3-bar-item w3-button">
       German
     </button>
-    <button onclick="selectLang('chinese')" class="w3-bar-item w3-button">
+    <button onclick="selectLang('chinese')" style="width:25% !important"class="w3-bar-item w3-button">
       Chinese
-    </button>  </div>
+    </button>
+  </div>
 </div>
 
 <!-- Page Content -->
