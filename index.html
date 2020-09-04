@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-<!--  fix streak issue, add icons e.g. happier face, and more for progress -->
 <html>
 <title>Learn Vocabulary</title>
 <meta charset="UTF-8">
@@ -163,9 +162,10 @@ init();
           var C = document.getElementById("answerC");
           var D = document.getElementById("answerD");
           var correctAnswer = "test";
-
+          var clicked = false;
 
         function init() {
+
         Tabletop.init( { key: publicSpreadsheetUrl,
         callback: load,
         simpleSheet: true } )
@@ -216,7 +216,7 @@ console.log(data);
         B.innerHTML = quiz[0].choices[1];
         C.innerHTML = quiz[0].choices[2];
         D.innerHTML = quiz[0].choices[3];
-
+clicked = false;
 }
 
 
@@ -228,6 +228,8 @@ var streakCount= 0;
         var msgIncorrect = "No Correcto!";
         var msgId = document.getElementById("result");
         var streakDisplay = document.getElementById("mainButton");
+        var clicked = false;
+
 function correct(){
   msgId.innerHTML= msgCorrect;
   document.getElementById("mainButtonMain").style.display = "inline-block";
@@ -236,27 +238,53 @@ function correct(){
   document.getElementById("resultMain").className = "animate__bounceIn w3-center w3-green w3-padding-16 w3-button";
   document.getElementById("mainButtonMain").className =   "animate__bounceIn w3-center w3-green w3-padding-16 w3-button";
 
-  streakCount++;
-  console.log(streakCount);
-  var smileIcon = ' <i style="color:white" class="far fa-smile fa-lg   animate__heartBeat"></i>'
-  var fireIcon =  ' <i style="color:orange" class="fas fa-fire-alt fa-lg   animate__animated animate__pulse animate__infinite infinite animate__faster "></i>';
-  if (streakCount > 2)
-  {
-     document.getElementById("icon").innerHTML = smileIcon;
 
-  }
-  if (streakCount > 4){
-    document.getElementById("icon").innerHTML = fireIcon;
-  }
-  if (streakCount > 9){
-    document.getElementById("icon").innerHTML = fireIcon + fireIcon;
-  }
-  if (streakCount > 19){
-    document.getElementById("icon").innerHTML = fireIcon + fireIcon + fireIcon;
-  }
-next();
+
+
+                streakCount++;
+                console.log(streakCount);
+                var smileIcon = ' <i style="color:white" class="far fa-smile fa-lg   animate__heartBeat"></i>'
+                var bigSmileIcon = ' <i style="color:white" class="far fa-grin-alt fa-lg   animate__heartBeat"></i>'
+                var biggerSmileIcon = ' <i style="color:white" class="far fa-laugh-beam fa-lg   animate__heartBeat"></i>'
+                var fireIcon =  ' <i style="color:orange" class="fas fa-fire-alt fa-lg   animate__animated animate__heartBeat animate__infinite infinite animate__fast "></i>';
+                var trophy = ' <i style="color:orange" class="fas fa-trophy fa-lg   animate__animated animate__pulse animate__infinite infinite animate__faster "></i>';
+                var glasses = ' <p class="animate__animated animate__pulse animate__infinite infinite animate__faster" style="color:orange; display:inline-block;"><i class="fas fa-book fa-lg"> </i> The Scholar <i class="fas fa-glasses fa-lg"> </i></p>';
+                if (streakCount > 1)
+                {
+                   document.getElementById("icon").innerHTML = smileIcon;
+                }
+                if (streakCount > 2)
+                {
+                   document.getElementById("icon").innerHTML = bigSmileIcon;
+                }
+                if (streakCount > 3)
+                {
+                   document.getElementById("icon").innerHTML = biggerSmileIcon;
+                }
+                if (streakCount > 4){
+                  document.getElementById("icon").innerHTML = fireIcon;
+                }
+                if (streakCount > 9){
+                  document.getElementById("icon").innerHTML = fireIcon + fireIcon;
+                }
+                if (streakCount > 19){
+                  document.getElementById("icon").innerHTML = fireIcon + fireIcon + fireIcon;
+                }
+                if (streakCount > 49){
+                  document.getElementById("icon").innerHTML = trophy;
+                }
+                if (streakCount > 99){
+                  document.getElementById("icon").innerHTML = glasses;
+                }
+
+
+
+  next();
+
 
     }
+
+
 
 function incorrect(){
   msgId.innerHTML= msgIncorrect;
@@ -267,14 +295,19 @@ function incorrect(){
     document.getElementById("mainButtonMain").className = "w3-center w3-red w3-padding-16 w3-button";
   streakCount = 0;
   document.getElementById("icon").innerHTML = "";
-
+ clicked = false;
   next();
 }
 function validateA() {
 
           if (A.innerHTML == correctAnswer)
           {
-            correct();
+             if(!clicked){
+               clicked = true;
+                      correct();
+                        }
+
+
           }
           else
           {
@@ -283,30 +316,44 @@ function validateA() {
 
         }
 
-        function validateB() {
+function validateB() {
           if (B.innerHTML == correctAnswer)
           {
-            correct();
+            if(!clicked){
+              clicked = true;
+                     correct();
+                       }
+
+
           }
           else
           {
             incorrect();
           }
         }
-        function validateC() {
+function validateC() {
           if (C.innerHTML == correctAnswer)
           {
-            correct();
+            if(!clicked){
+                 clicked = true;
+                     correct();
+                       }
+
+
           }
           else
           {
             incorrect();
           }
         }
-        function validateD() {
+function validateD() {
           if (D.innerHTML == correctAnswer)
           {
-            correct();
+            if(!clicked){
+               clicked = true;
+                     correct();
+                       }
+
           }
           else
           {
@@ -316,8 +363,8 @@ function validateA() {
 
 function next() {
   j = Math.floor(Math.random() * 250);
-   init()
 
+   init()
 
      streakDisplay.innerHTML = "Streak: " + "<b>" +  streakCount + "<b>";
 
