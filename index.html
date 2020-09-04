@@ -6,7 +6,13 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+/>
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<script src="https://kit.fontawesome.com/8770f0a2e2.js" crossorigin="anonymous"></script>
+
 <!-- https://www.countryflags.com/en/germany-flag-icon.html -->
 
 <style>
@@ -85,9 +91,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   </div>
 
   <div class= "w3-center w3-container w3-padding-16">
-    <button id="startButtonMain" onclick="next()" class=" w3-center w3-green w3-padding-16 w3-button"><span id= "startButton"> Start</span> </button>
+    <button id="startButtonMain" onclick="next()" class=" w3-center w3-green w3-padding-16 w3-button"><span id= "startButton"> Start</span>
+
+    </button>
     <button id="resultMain" style="display:none;" class="w3-center w3-green w3-padding-16 w3-button"><span id="result"></span></button>
-    <button id="mainButtonMain" style="display:none;"  class="w3-center w3-green w3-padding-16 w3-button"><span id= "mainButton"></span> </button>
+    <button id="mainButtonMain" style="display:none;"  class="w3-center w3-padding-16 w3-button"><span id= "mainButton"></span></button><span style="padding:5px" id="icon"></span>
 
 </div>
 
@@ -223,11 +231,27 @@ function correct(){
   document.getElementById("mainButtonMain").style.display = "inline-block";
   document.getElementById("resultMain").style.display = "inline-block";
   document.getElementById("startButtonMain").style.display = "none";
-  document.getElementById("resultMain").className = "w3-center w3-green w3-padding-16 w3-button";
-  document.getElementById("mainButtonMain").className =   "w3-center w3-green w3-padding-16 w3-button";
+  document.getElementById("resultMain").className = "animate__bounceIn w3-center w3-green w3-padding-16 w3-button";
+  document.getElementById("mainButtonMain").className =   "animate__bounceIn w3-center w3-green w3-padding-16 w3-button";
 
   streakCount++;
   console.log(streakCount);
+  var smileIcon = ' <i style="color:white" class="far fa-smile fa-lg   animate__heartBeat"></i>'
+  var fireIcon =  ' <i style="color:orange" class="fas fa-fire-alt fa-lg   animate__animated animate__pulse animate__infinite infinite animate__faster "></i>';
+  if (streakCount > 2)
+  {
+     document.getElementById("icon").innerHTML = smileIcon;
+
+  }
+  if (streakCount > 4){
+    document.getElementById("icon").innerHTML = fireIcon;
+  }
+  if (streakCount > 9){
+    document.getElementById("icon").innerHTML = fireIcon + fireIcon;
+  }
+  if (streakCount > 19){
+    document.getElementById("icon").innerHTML = fireIcon + fireIcon + fireIcon;
+  }
 next();
 
     }
@@ -240,6 +264,8 @@ function incorrect(){
     document.getElementById("resultMain").className = "w3-center w3-red w3-padding-16 w3-button";
     document.getElementById("mainButtonMain").className = "w3-center w3-red w3-padding-16 w3-button";
   streakCount = 0;
+  document.getElementById("icon").innerHTML = "";
+
   next();
 }
 function validateA() {
@@ -289,7 +315,12 @@ function validateA() {
 function next() {
   j = Math.floor(Math.random() * 250);
    init()
-   streakDisplay.innerHTML = "Streak: " + "<b>" + streakCount + "<b>";
+
+   if (streakCount > 0)
+   {
+     streakDisplay.innerHTML = "Streak: " + "<b>" +  streakCount + "<b>";
+   }
+
 }
 </script>
 </script>
