@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-<title>Learn Language Vocabulary - Chinese, Spanish, French, and German.</title>
+<title>Learn Language Vocabulary - Chinese, Spanish, French, Russian, Arabic, and German.</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="content-type" content="text/html">
@@ -24,7 +24,7 @@
      <meta name="HandheldFriendly" content="true"/>
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link
   rel="stylesheet"
@@ -125,10 +125,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 </div>
 
 <!-- Page Content -->
-<div class="w3-padding-16" id="main">
+<div id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-8 w3-center w3-black" id="home">
-    <h1 class="w3-big"><span id="heading">Spanish </span><span class="w3-hide-small">Vocabulary</span></h1>
+    <h1><span id="heading">Spanish </span><span class="w3-hide-small">Vocabulary</span></h1>
     <p>Improve your vocab skills with 500 of the most commonly used words.</p>
 
   </header>
@@ -155,8 +155,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <button id="mainButtonMain" style="display:none;"  class="w3-center w3-padding-16 w3-button"><span id= "mainButton"></span></button><span style="padding:5px" id="icon"></span>
 
 </div>
-
-
+<hr>
+<div class="w3-padding-16  w3-container">
+<div class="w3-padding-16 w3-padding w3-black w3-container">
+  <h2>Practice the most common 500 words or characters</h2>
+  <p>Select a language to load the most commonly used 500 words. Practice your vocabulary and character recognition using the quiz and see how many you can get in a streak.</p>
+  <p>Currently, you can practice your knowledge of Spanish, French, German, Chinese, Russian, and Arabic. We've added Chinese and Arabic mainly so you can practice your reading skills.</p>
+  <p>By the way, you can switch between languages and continue your streak. See if you can become a real polyglot.</p>
+</div>
+</div>
     <!-- Footer
   <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -329,6 +336,7 @@ function correct(){
 
                 streakCount++;
                 console.log(streakCount);
+
                 var smileIcon = ' <i style="color:white" class="far fa-smile fa-lg   animate__heartBeat"></i>'
                 var bigSmileIcon = ' <i style="color:white" class="far fa-grin-alt fa-lg   animate__heartBeat"></i>'
                 var biggerSmileIcon = ' <i style="color:white" class="far fa-laugh-beam fa-lg   animate__heartBeat"></i>'
